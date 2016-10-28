@@ -7,6 +7,14 @@
     <groupId>us.ethanyoung.ethan-pms</groupId>
     <artifactId>ethan-pms</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
-    
+
 </project>
