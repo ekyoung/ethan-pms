@@ -1,14 +1,14 @@
-CREATE TABLE public."Questions"
+CREATE TABLE public.questions
 (
-    "QuestionId" serial NOT NULL,
-    "Subject" text NOT NULL,
-    "Content" text NOT NULL,
-    PRIMARY KEY ("QuestionId")
+    question_id serial NOT NULL,
+    subject text NOT NULL,
+    content text NOT NULL,
+    PRIMARY KEY (question_id)
 )
 WITH (
-    OIDS = FALSE
+OIDS = FALSE
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."Questions"
+ALTER TABLE public.questions
     OWNER to postgres;

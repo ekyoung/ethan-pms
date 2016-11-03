@@ -3,20 +3,14 @@
 
 <mapper namespace="us.ethanyoung.superpms.persistence.mybatis.mappers.QuestionMapper">
     <resultMap type="Question" id="questionResult">
-        <id column="QuestionId" property="id"/>
-        <result column="Subject" property="subject"/>
-        <result column="Content" property="content"/>
+        <id column="question_id" property="id"/>
+        <result column="subject" property="subject"/>
+        <result column="content" property="content"/>
     </resultMap>
-
-    <sql id="questionResultFields">
-        QuestionId,
-        Subject,
-        Content
-    </sql>
 
     <select id="getAll" resultMap="questionResult">
         SELECT *
-        FROM public."Questions"
-        ORDER BY "Subject" ASC
+        FROM public.questions
+        ORDER BY subject ASC
     </select>
 </mapper>
