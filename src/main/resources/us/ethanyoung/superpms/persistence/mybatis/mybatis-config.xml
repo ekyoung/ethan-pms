@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties>
+        <property name="host" value="localhost"/>
+        <property name="port" value="5432"/>
+        <property name="database" value="SuperPMS"/>
+        <property name="username" value="postgres"/>
+        <property name="password" value="postgrespw"/>
+        <property name="driver" value="org.postgresql.Driver"/>
+    </properties>
+
+    <typeAliases>
+        <typeAlias type="us.ethanyoung.superpms.questions.Question" alias="Question"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="jdbc:postgresql://${host}:${port}/${database}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="us/ethanyoung/superpms/persistence/mybatis/mappers/Question.xml"/>
+    </mappers>
+</configuration>

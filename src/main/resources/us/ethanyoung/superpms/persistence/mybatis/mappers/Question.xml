@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="us.ethanyoung.superpms.persistence.mybatis.mappers.QuestionMapper">
+    <resultMap type="Question" id="questionResult">
+        <id column="QuestionId" property="id"/>
+        <result column="Subject" property="subject"/>
+        <result column="Content" property="content"/>
+    </resultMap>
+
+    <sql id="questionResultFields">
+        QuestionId,
+        Subject,
+        Content
+    </sql>
+
+    <select id="getAll" resultMap="questionResult">
+        SELECT *
+        FROM public."Questions"
+        ORDER BY "Subject" ASC
+    </select>
+</mapper>
