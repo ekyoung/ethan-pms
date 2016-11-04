@@ -13,18 +13,41 @@ import java.util.List;
 
 public class QuestionRepositoryImpl implements QuestionRepository {
 
-    public int getCount() throws IOException {
-        String resource = "us/ethanyoung/superpms/persistence/mybatis/mybatis-config.xml";
-        InputStream inputStream = Resources.getResourceAsStream(resource);
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+    private SqlSessionFactory sqlSessionFactory;
 
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+    private SqlSessionFactory getFactory() throws IOException {
+        if (sqlSessionFactory == null) {
+            String resource = "us/ethanyoung/superpms/persistence/mybatis/mybatis-config.xml";
+            InputStream inputStream = Resources.getResourceAsStream(resource);
+            sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        }
+
+        return sqlSessionFactory;
+    }
+
+    private String qualifyStatementName(String name) {
+        return "us.ethanyoung.superpms.persistence.mybatis.mappers.QuestionMapper." + name;
+    }
+
+    @Override
+    public void save(Question question) throws IOException {
+        SqlSession sqlSession = getFactory().openSession();
 
         try {
-            List<Question> questions = sqlSession.selectList("us.ethanyoung.superpms.persistence.mybatis.mappers.QuestionMapper.getAll");
-            return questions.size();
+            sqlSession.insert(qualifyStatementName("insert"), question);
+            sqlSession.commit();
+        } finally {
+            sqlSession.close();
         }
-        finally {
+    }
+
+    public int getCount() throws IOException {
+        SqlSession sqlSession = getFactory().openSession();
+
+        try {
+            List<Question> questions = sqlSession.selectList(qualifyStatementName("getAll"));
+            return questions.size();
+        } finally {
             sqlSession.close();
         }
     }

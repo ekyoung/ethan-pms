@@ -4,9 +4,12 @@
 <mapper namespace="us.ethanyoung.superpms.persistence.mybatis.mappers.QuestionMapper">
     <resultMap type="Question" id="questionResult">
         <id column="question_id" property="id"/>
-        <result column="subject" property="subject"/>
-        <result column="content" property="content"/>
     </resultMap>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO public.questions (subject, content)
+        VALUES (#{subject}, #{content})
+    </insert>
 
     <select id="getAll" resultMap="questionResult">
         SELECT *
