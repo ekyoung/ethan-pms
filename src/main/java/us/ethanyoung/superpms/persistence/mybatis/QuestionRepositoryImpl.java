@@ -1,5 +1,6 @@
 package us.ethanyoung.superpms.persistence.mybatis;
 
+import com.tacitknowledge.util.migration.jdbc.StandaloneMigrationLauncher;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -12,6 +13,8 @@ import java.io.InputStream;
 import java.util.List;
 
 public class QuestionRepositoryImpl implements QuestionRepository {
+
+    private StandaloneMigrationLauncher launcher;
 
     private SqlSessionFactory sqlSessionFactory;
 

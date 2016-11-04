@@ -1,0 +1,15 @@
+<project name="SuperPMS" default="patch" basedir=".">
+    <target name="patch" description="Runs the patch system">
+        <java
+                fork="true"
+                failonerror="true"
+                classname="com.tacitknowledge.util.migration.jdbc.StandaloneMigrationLauncher">
+            <classpath>
+                <pathelement location="./target/ethan-pms-1.0-SNAPSHOT/WEB-INF/lib/*"/>
+                <pathelement location="./src/main/resources/db-migration/migration.properties"/>
+            </classpath>
+            <sysproperty key="migration.systemname" value="superpms"/>
+            <!--<sysproperty key="migration.settings" value="./src/main/resources/db-migration/migration.properties"/>-->
+        </java>
+    </target>
+</project>
