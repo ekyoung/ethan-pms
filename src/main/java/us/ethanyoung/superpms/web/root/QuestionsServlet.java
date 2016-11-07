@@ -2,7 +2,7 @@ package us.ethanyoung.superpms.web.root;
 
 import us.ethanyoung.superpms.persistence.mybatis.QuestionRepositoryImpl;
 import us.ethanyoung.superpms.questions.Question;
-import us.ethanyoung.superpms.questions.QuestionRepository;
+import us.ethanyoung.superpms.questions.QuestionService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,16 +13,17 @@ import java.io.IOException;
 
 @WebServlet(name = "QuestionsServlet", urlPatterns = {"/questions"})
 public class QuestionsServlet extends HttpServlet {
-    private QuestionRepository questionRepository;
+
+    private QuestionService questionService;
 
     public QuestionsServlet() {
-        questionRepository = new QuestionRepositoryImpl();
+        questionService = new QuestionService(new QuestionRepositoryImpl());
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("view", "ask");
-        req.setAttribute("numQuestions", questionRepository.getCount());
+        req.setAttribute("numQuestions", questionService.getCount());
 
         req.getRequestDispatcher("/WEB-INF/jsp/view/questions.jsp").forward(req, resp);
     }
@@ -33,7 +34,7 @@ public class QuestionsServlet extends HttpServlet {
         question.setSubject(req.getParameter("subject"));
         question.setContent(req.getParameter("content"));
 
-        questionRepository.save(question);
+        questionService.save(question);
 
         req.setAttribute("view", "confirmation");
 
