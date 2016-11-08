@@ -10,11 +10,15 @@ public class QuestionService {
         this.questionRepository = questionRepository;
     }
 
-    public int getCount() throws IOException {
-        return questionRepository.getCount();
+    public int getCount(String scope) throws IOException {
+        return questionRepository.getCount(scope);
     }
 
-    public void save(Question question) throws IOException {
+    public void submit(Question question) throws IOException {
+        //Imaginary logic here
+
+        //The common case is for a service to submit one entity, and raise one event
         questionRepository.save(question);
+        //messenger.raise(questionSubmittedEvent);
     }
 }

@@ -3,17 +3,21 @@
 
 <mapper namespace="us.ethanyoung.superpms.persistence.mybatis.mappers.QuestionMapper">
     <resultMap type="Question" id="questionResult">
+        <constructor>
+            <arg column="scope" javaType="String"/>
+        </constructor>
         <id column="question_id" property="id"/>
     </resultMap>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO public.questions (subject, content)
-        VALUES (#{subject}, #{content})
+        INSERT INTO public.questions (scope, subject, content)
+        VALUES (#{scope}, #{subject}, #{content})
     </insert>
 
-    <select id="getAll" resultMap="questionResult">
+    <select id="getAll" resultMap="questionResult" parameterType="String">
         SELECT *
         FROM public.questions
+        WHERE scope = #{scope}
         ORDER BY subject ASC
     </select>
 </mapper>

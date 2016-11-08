@@ -29,7 +29,6 @@ public class QuestionRepositoryImpl implements QuestionRepository {
         return "us.ethanyoung.superpms.persistence.mybatis.mappers.QuestionMapper." + name;
     }
 
-    @Override
     public void save(Question question) throws IOException {
         SqlSession sqlSession = getFactory().openSession();
 
@@ -41,11 +40,11 @@ public class QuestionRepositoryImpl implements QuestionRepository {
         }
     }
 
-    public int getCount() throws IOException {
+    public int getCount(String scope) throws IOException {
         SqlSession sqlSession = getFactory().openSession();
 
         try {
-            List<Question> questions = sqlSession.selectList(qualifyStatementName("getAll"));
+            List<Question> questions = sqlSession.selectList(qualifyStatementName("getAll"), scope);
             return questions.size();
         } finally {
             sqlSession.close();

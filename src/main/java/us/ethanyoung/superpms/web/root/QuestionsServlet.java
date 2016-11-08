@@ -14,6 +14,8 @@ import java.io.IOException;
 @WebServlet(name = "QuestionsServlet", urlPatterns = {"/questions"})
 public class QuestionsServlet extends HttpServlet {
 
+    private static final String SCOPE = "main";
+
     private QuestionService questionService;
 
     public QuestionsServlet() {
@@ -23,18 +25,18 @@ public class QuestionsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("view", "ask");
-        req.setAttribute("numQuestions", questionService.getCount());
+        req.setAttribute("numQuestions", questionService.getCount(SCOPE));
 
         req.getRequestDispatcher("/WEB-INF/jsp/view/questions.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Question question = new Question();
+        Question question = new Question(SCOPE);
         question.setSubject(req.getParameter("subject"));
         question.setContent(req.getParameter("content"));
 
-        questionService.save(question);
+        questionService.submit(question);
 
         req.setAttribute("view", "confirmation");
 

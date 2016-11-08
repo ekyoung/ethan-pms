@@ -1,8 +1,9 @@
 package us.ethanyoung.superpms.questions;
 
 public class Question {
-    public Question(){
 
+    public Question(String scope) {
+        this.scope = scope;
     }
 
     private int id;
@@ -13,6 +14,16 @@ public class Question {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    private String scope;
+
+    public String getScope() {
+        return scope;
+    }
+
+    public void setScope(String scope) {
+        this.scope = scope;
     }
 
     private String subject;

@@ -1,10 +1,12 @@
-package us.ethanyoung.superpms.questions;
+package us.ethanyoung.superpms.questions.tests.unit;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import us.ethanyoung.superpms.questions.QuestionRepository;
+import us.ethanyoung.superpms.questions.QuestionService;
 
 import java.io.IOException;
 
@@ -24,11 +26,12 @@ public class QuestionServiceTest {
     @Test
     public void inAllCasesWhenICallGetCountThenItReturnsTheResultFromTheRepository() throws IOException{
         int count = 5;
-        when(mockQuestionRepository.getCount()).thenReturn(count);
+        String scope = "whatever";
+        when(mockQuestionRepository.getCount(scope)).thenReturn(count);
 
-        int result = questionService.getCount();
+        int result = questionService.getCount(scope);
 
         assertEquals(count, result);
-        verify(mockQuestionRepository).getCount();
+        verify(mockQuestionRepository).getCount(scope);
     }
 }
