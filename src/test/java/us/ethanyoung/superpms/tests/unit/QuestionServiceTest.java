@@ -1,4 +1,4 @@
-package us.ethanyoung.superpms.questions.tests.unit;
+package us.ethanyoung.superpms.tests.unit;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;

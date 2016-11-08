@@ -1,4 +1,4 @@
-package us.ethanyoung.superpms.questions.tests.synthetic;
+package us.ethanyoung.superpms.tests.synthetic;
 
 import static org.junit.Assert.*;
 
