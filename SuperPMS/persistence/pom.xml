@@ -5,20 +5,29 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>us.ethanyoung.superpms</groupId>
-    <artifactId>us.ethanyoung.superpms</artifactId>
+    <artifactId>us.ethanyoung.superpms-persistence</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
+            <groupId>us.ethanyoung.superpms</groupId>
+            <artifactId>us.ethanyoung.superpms</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4-1206-jdbc42</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>2.2.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -39,6 +48,19 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>4.0.3</version>
+                <configuration>
+                    <url>jdbc:postgresql://localhost:5432/SuperPMS</url>
+                    <user>postgres</user>
+                    <password>postgrespw</password>
+                    <locations>
+                        <location>filesystem:src/main/resources/db-migration</location>
+                    </locations>
                 </configuration>
             </plugin>
         </plugins>

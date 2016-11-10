@@ -1,7 +1,5 @@
 package us.ethanyoung.superpms.tests.synthetic;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 import us.ethanyoung.superpms.persistence.mybatis.QuestionRepositoryImpl;
@@ -10,6 +8,8 @@ import us.ethanyoung.superpms.questions.QuestionService;
 
 import java.io.IOException;
 import java.util.UUID;
+
+import static org.junit.Assert.*;
 
 public class QuestionServiceTest {
     private QuestionService questionService;

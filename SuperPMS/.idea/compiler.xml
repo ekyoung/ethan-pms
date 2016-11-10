@@ -23,13 +23,15 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="core" />
+        <module name="persistence" />
         <module name="SuperPMS" />
         <module name="superpms" />
         <module name="web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
-      <module name="core" target="1.5" />
+      <module name="core" target="1.8" />
+      <module name="persistence" target="1.8" />
       <module name="SuperPMS" target="1.8" />
       <module name="superpms" target="1.8" />
       <module name="web" target="1.8" />
