@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ethan-pms.iml" filepath="$PROJECT_DIR$/ethan-pms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/SuperPMS.iml" filepath="$PROJECT_DIR$/web/SuperPMS.iml" />
     </modules>
   </component>
 </project>

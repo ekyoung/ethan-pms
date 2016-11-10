@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="ethan-pms:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="ethan-pms-1.0-SNAPSHOT.war">
-      <element id="artifact" artifact-name="ethan-pms:war exploded" />
-    </root>
-  </artifact>
-</component>

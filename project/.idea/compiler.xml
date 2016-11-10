@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="ethan-pms" />
+        <module name="SuperPMS" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
-      <module name="ethan-pms" target="1.8" />
+      <module name="SuperPMS" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
