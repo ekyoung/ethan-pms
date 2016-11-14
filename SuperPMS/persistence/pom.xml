@@ -4,14 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>us.ethanyoung.superpms</groupId>
+        <artifactId>app</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
     <groupId>us.ethanyoung.superpms</groupId>
-    <artifactId>us.ethanyoung.superpms-persistence</artifactId>
+    <artifactId>superpms-persistence</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>us.ethanyoung.superpms</groupId>
-            <artifactId>us.ethanyoung.superpms</artifactId>
+            <artifactId>superpms-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
