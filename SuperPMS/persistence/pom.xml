@@ -10,10 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>us.ethanyoung.superpms</groupId>
     <artifactId>superpms-persistence</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
